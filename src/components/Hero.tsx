@@ -1,46 +1,62 @@
-
-import React from 'react';
+import React from "react";
 import { Button } from "@/components/ui/button";
 
 const Hero: React.FC = () => {
-  return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 px-4">
-      <div className="container mx-auto text-center">
-        <div className="inline-block mb-4 px-4 py-1 rounded-full bg-crypto-purple/10 border border-crypto-purple/20">
-          <span className="text-sm font-medium text-crypto-purple">Secure your memories forever</span>
-        </div>
-        
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-          Encrypt Your Memories with 
-          <span className="gradient-text block mt-2">Crypto Memories</span>
-        </h1>
-        
-        <p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-8">
-          A secure and private way to store your most precious memories. 
-          Powered by advanced encryption for Mac users who value their privacy.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Button className="bg-gradient-primary hover:opacity-90 transition-opacity text-white px-8 py-6">
-            Get Started
-          </Button>
-          <Button variant="outline" className="border-crypto-purple/30 text-foreground hover:bg-crypto-purple/5 px-8 py-6">
-            Learn More
-          </Button>
-        </div>
-        
-        <div className="relative w-full max-w-4xl mx-auto aspect-video rounded-xl glass-card p-1 overflow-hidden animate-float">
-          <div className="w-full h-full bg-crypto-dark-bg rounded-lg flex items-center justify-center">
-            <div className="text-center p-8">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-primary animate-pulse-glow"></div>
-              <h3 className="text-white text-lg font-medium">Crypto Memories Interface</h3>
-              <p className="text-white/70 text-sm">Your safe space for storing memories</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+	const download = () => {
+		const link = document.createElement("a");
+		link.href = "https://github.com/Qinsir7/CryptoNote/archive/refs/heads/main.zip";
+		link.download = "CryptoNote.zip";
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+
+		// 备用方案：直接打开 GitHub 页面
+		window.open("https://github.com/Qinsir7/CryptoNote/tree/main/Frontend/applescript/", "_blank");
+	};
+
+	return (
+		<section className="relative pt-32 md:pt-40 md:px-4">
+			<div className="container mx-auto text-center">
+				<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+					Write Once, Execute Everywhere.
+					{/* <span className="gradient-text block mt-2">Crypto</span> */}
+				</h1>
+
+				<p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-8">
+					AI co-pilot for the entire Web3 ecosystem, accessible through the simplest interface possible - the Notes app already on your Mac.
+				</p>
+
+				<div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+					<Button
+						className="bg-gradient-primary hover:opacity-90 transition-opacity text-white px-8 py-6"
+						onClick={() => {
+							download();
+						}}
+					>
+						Download
+					</Button>
+					<Button variant="outline" className="border-crypto-purple/30 text-foreground hover:bg-crypto-purple/5 hover:text-crypto-purple px-8 py-6 flex">
+						<a className="w-full h-100%" href="https://github.com/Qinsir7/CryptoNote">Learn More</a>
+					</Button>
+				</div>
+
+				<div className="relative w-full max-w-4xl mx-auto aspect-video rounded-xl glass-card p-1 overflow-hidden animate-float">
+					<div className="w-full h-full bg-crypto-dark-bg rounded-lg flex items-center justify-center">
+						<iframe
+							width="100%"
+							height="100%"
+							src="https://www.youtube.com/embed/rL1vXsBGVx8?si=56RsGqgGBg7RKxYA"
+							title="YouTube video player"
+							frameBorder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerPolicy="strict-origin-when-cross-origin"
+							allowFullScreen
+						></iframe>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 };
 
 export default Hero;
